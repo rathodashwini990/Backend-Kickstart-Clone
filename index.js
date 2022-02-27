@@ -8,10 +8,10 @@ const productRoute= require("./routes/Product")
 const cartRoute= require("./routes/Cart")
 const orderRoute = require("./routes/Order")
 // const sRoute = require("./routes/Stripe");
-const payroute=require("./routes/Stripe")
+// const payroute=require("./routes/Stripe")
 const cors = require("cors");
 const multer = require("multer");
-const stripeRoute = require("./routes/Stripe");
+// const stripeRoute = require("./routes/Stripe");
 const path =require("path")
 
 // const cors = require("cors");
@@ -78,7 +78,7 @@ app.use("/api/products", productRoute);
 
 app.use("/api/cart", cartRoute);
 // app.use("/api/order", orderRoute);
-app.use("/api/checkout", stripeRoute);
+// app.use("/api/checkout", stripeRoute);
 
 // 
 // server start om port
