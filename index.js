@@ -73,7 +73,7 @@ app.use(express.json());
 
 
 app.use("/api/auth", authRoute);
-// app.use("/api/users", userRoute);
+app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 
 app.use("/api/cart", cartRoute);
@@ -84,4 +84,5 @@ app.use("/api/checkout", stripeRoute);
 // server start om port
 app.listen(process.env.PORT||3500,()=> {
     console.log("server is up and running")
+
 })
