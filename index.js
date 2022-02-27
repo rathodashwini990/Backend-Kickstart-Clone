@@ -80,7 +80,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 
-app.use("/api/cart", cartRoute);
+// app.use("/api/cart", cartRoute);
 // app.use("/api/order", orderRoute);
 // app.use("/api/checkout", stripeRoute);
 
