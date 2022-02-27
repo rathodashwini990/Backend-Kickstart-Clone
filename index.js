@@ -36,7 +36,14 @@ app.use(
 // Mongo Connect
 
 
-mongoose.connect(process.env.Mongo_url).then(() => console.log("Database connected successfully")).catch((err) => { console.log(err) })
+mongoose
+  .connect(
+    "mongodb+srv://Ecom:ecom1234@cluster0.clhww.mongodb.net/KickstaterDb?retryWrites=true&w=majority"
+  )
+  .then(() => console.log("Database connected successfully"))
+  .catch((err) => {
+    console.log(err);
+  });
 
 //Image uploads routed
 

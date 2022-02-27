@@ -11,7 +11,8 @@ router.post("/register", async (req, res) => {
       email: req.body.email,
       password: CryptoJS.AES.encrypt(
         req.body.password,
-        process.env.Pass_Key
+        // process.env.Pass_Key
+        'SecreateKry'
       ).toString(),
       //   username: req.body.username,
     });
@@ -64,8 +65,9 @@ router.post("/login", async (req, res) =>
         !user && res.status(401).json("Wrong User name or User not registered")
 
         const hastpass = CryptoJS.AES.decrypt(
-            user.password,
-            process.env.Pass_Key
+          user.password,
+          // process.env.Pass_Key
+          "SecreateKry"
         ).toString(CryptoJS.enc.Utf8);
 
         hastpass !== req.body.password && res.status(401).json("Wrong Password");
@@ -75,7 +77,8 @@ router.post("/login", async (req, res) =>
             id: user._id,
             isAdmin: user.isAdmin,
           },
-          process.env.JWK,
+          // process.env.JWK
+          "EcomUser",
           { expiresIn: "3d" }
         );
 
