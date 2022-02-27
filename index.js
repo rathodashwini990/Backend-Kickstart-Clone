@@ -11,7 +11,7 @@ const orderRoute = require("./routes/Order")
 const payroute=require("./routes/Stripe")
 const cors = require("cors");
 const multer = require("multer");
-const stripeRoute = require("./routes/stripe");
+const stripeRoute = require("./routes/Stripe");
 const path =require("path")
 
 // const cors = require("cors");
