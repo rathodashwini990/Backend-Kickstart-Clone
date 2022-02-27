@@ -24,6 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.2",
     "nodemon": "^2.0.15",
+    "react-stripe-checkout": "^2.6.3",
     "stripe": "^8.203.0"
   }
 }

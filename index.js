@@ -7,6 +7,7 @@ const authRoute = require("./routes/auth")
 const productRoute= require("./routes/Product")
 const cartRoute= require("./routes/Cart")
 const orderRoute = require("./routes/Order")
+const stripeRoute = require("./routes/stripe")
 const cors = require("cors");
 
 const app = express();
@@ -33,7 +34,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/products", productRoute);
 
 // app.use("/api/cart", cartRoute);
-// app.use("/api/order", orderRoute);
+app.use("/api/checkout", stripeRoute);
 
 // 
 // server start om port
