@@ -24,7 +24,7 @@ const path =require("path")
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:3000/",
+    origin: "https://kickstart-clone-2.netlify.app",
   })
 );
 
