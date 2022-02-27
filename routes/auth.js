@@ -2,7 +2,7 @@ const router = require("express").Router();
 const User = require("../models/user")
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken")
-
+const nodemailer = require("nodemailer");
 
 // Register===================================
 router.post("/register", async (req, res) => {
@@ -18,9 +18,33 @@ router.post("/register", async (req, res) => {
    
 
     try {
-        const savedUser = await newUser.save();//save method of mongoose "User" <= user Schema
-        //console.log(savedUser)
-        res.status(201).json(savedUser);
+      const savedUser = await newUser.save(); //save method of mongoose "User" <= user Schema
+      //console.log(savedUser)
+
+      // sending mail for registered user//24feb2022//kickstarter57@gmail.com
+
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "kickstarter57@gmail.com",
+          pass:"24feb2022"
+        },
+      });
+
+      let mailoption = {
+        from: "kickstarter57@gmail.com",
+        to: savedUser.email,
+        subject: "Mail for successful user registration",
+        text: "Thank you for registering at Kick starter, please feel free to mail us for any query or suggestions. ",
+      };
+
+      transporter.sendMail(mailoption, function (err, info)
+      { 
+        if (err) { console.log(err) }
+        else console.log(info.response)
+      })
+
+      res.status(201).json(savedUser);
     } catch (err) { 
         console.log(err)
         res.status(500).json(err)
@@ -31,7 +55,9 @@ router.post("/register", async (req, res) => {
 
 // Login========================
 
-router.post("/login", async (req, res) => {
+router.post("/login", async (req, res) =>
+{
+  console.log(req.body)
     try {
         const user = await User.findOne({ username: req.body.username })
 
@@ -54,7 +80,7 @@ router.post("/login", async (req, res) => {
         );
 
         const { password, ...others } = user._doc;
-
+        console.log("logged in")
         res.status(200).json({ ...others,accessToken });
 
     } catch(err) { 

@@ -20,3 +20,19 @@ const CartSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model("Cart", CartSchema); 
+
+
+
+
+// const CartSchema = new mongoose.Schema(
+//   {
+//     userId: { type: String, required: true },
+//     coverimg: {type:String},
+//     title: {type:String},
+//     subtitle: {type:String},
+//     amount: {type:String}
+//   },
+//   {
+//     timestamps: true,
+//   }
+// );

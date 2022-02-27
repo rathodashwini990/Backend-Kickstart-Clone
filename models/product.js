@@ -28,6 +28,7 @@ const ProductSchema = new mongoose.Schema(
     Shopingestimatetext: { type: String },
     TermsandConditions: { type: String },
     Rates: { type: String },
+    iscreated: { type: Boolean,default:false },
     Riskandchallanges: { type: String },
   },
   {

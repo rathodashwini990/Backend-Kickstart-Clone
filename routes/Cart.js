@@ -60,6 +60,16 @@ router.get("/single/:userid",verifytokenAndAuthorization, async (req, res) => {
     res.status(500).json(err);
   }
 });
+//experiment ======================================
+// router.get("/singl", async (req, res) => {
+//   //console.log("id")
+//   try {
+//       const prod = await cart.findOne({userId: req.params.userid });
+//     res.status(200).json(prod);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 //Get All cart
 
